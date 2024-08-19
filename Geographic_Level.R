@@ -17,10 +17,10 @@ library(dplyr)
 # ------------------------------------------------ #
 # --- Regions, States and Municipalities Table --- #
 # ------------------------------------------------ #
-localities = read_excel(path = 'Tabela_(Regioes_Estados_Municipios).xlsx', sheet = 'Localidades')
-dic_region = read_excel(path = 'Tabela_(Regioes_Estados_Municipios).xlsx', sheet = 'Dicionario_Regioes')
-dic_state = read_excel(path = 'Tabela_(Regioes_Estados_Municipios).xlsx', sheet = 'Dicionario_Estados')
-dic_municipality = read_excel(path = 'Tabela_(Regioes_Estados_Municipios).xlsx', sheet = 'Dicionario_Municipios')
+localities = read.csv(file = 'https://raw.githubusercontent.com/paulo-icaro/Ibge_API/main/Tabela_(Regioes_Estados_Municipios).csv', header = TRUE, sep = ';', fileEncoding =  'LATIN1')
+dic_region = unique(localities[c(1,2)])
+dic_state = unique(localities[c(3,4)])
+dic_municipality = unique(localities[c(5,6)])
 
 
 
