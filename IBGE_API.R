@@ -1,5 +1,5 @@
 # ==================================================================================================== #
-# === Functions for Accessing Brazilian Institute of Geographic and Statistics (IBGE) data via API === #
+# === FUNCTIONS FOR ACCESSING BRAZILIAN INSTITUTE OF GEOGRAPHIC AND STATISTICS (IBGE) DATA VIA APIW === #
 # ==================================================================================================== #
 
 # --- Script by Paulo Icaro --- #
@@ -12,6 +12,7 @@ library(httr2)                # API Connection (see https://httr2.r-lib.org/)
 library(dplyr)                # Library for data manipulation
 library(jsonlite)             # Convert Json data to an objetc
 library(svDialogs)            # Library for displaying message boxes
+library(devtools)             # Import scripts from github
 
 
 
@@ -25,8 +26,9 @@ library(svDialogs)            # Library for displaying message boxes
 # Example query to acess Resident Population: ibge_url(4709, 2022, 93)
 
 ibge_url = function(serie, period, variables){
+  
   # Script to insert the geographic level of the query
-  source('C://Users/Paulo/Documents/Repositorios/IBGE_API/Geographic_Level.R')
+  source('https://raw.githubusercontent.com/paulo-icaro/Ibge_API/main/Geographic_Level.R')
   
   # URL creation
   url = paste0('https://servicodados.ibge.gov.br/api/v3/agregados', '/', serie, '/periodos/', period, '/variaveis/', variables, locality_url) 
@@ -90,4 +92,4 @@ ibge_api = function(url){
 
 
 
-query = (ibge_api(ibge_url(4709, 2022, 93)))
+#query = (ibge_api(ibge_url(4709, 2022, 93)))
